@@ -1,0 +1,20 @@
+#search-bar
+{
+  margin-left: 50px;
+  width: 380px;
+}
+
+#search-button
+{
+  margin-left: -15px;
+  border-left-color: lightcyan;
+}
+
+#explore-button
+{
+  background-color: lightcyan;
+  color: black;
+}
+.hover:hover{
+  color:rgb(242, 160, 17)
+}

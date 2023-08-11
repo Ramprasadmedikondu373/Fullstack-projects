@@ -1,0 +1,33 @@
+<div id="container">
+  <ngb-tabset #instructor_tabs [destroyOnHide]="false">
+    <ngb-tab id="instructor_login" title="Login">
+      <ng-template ngbTabContent>
+        <br>
+        <form #myform="ngForm" class="form-inline my-2 my-lg-0">
+          <input [(ngModel)]="instructor_username" #username="ngModel" class="form-control mr-sm-2" type="text" placeholder="Username" [class.is-invalid]="username.touched && username.invalid" aria-label="Username" name="login_username" required>
+          <input [(ngModel)]="instructor_password" #password="ngModel" class="form-control mr-sm-2" type="password" placeholder="Password" [class.is-invalid]="password.touched && password.invalid" aria-label="Password" name="login_password" required>
+          
+        </form>
+        <button (click)="doLoginInstructor(instructor_username,instructor_password)" id="login-button" type="button" [disabled]="!myform.form.valid" class="btn btn-primary">Submit</button>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="instructor_sign-up">
+      <ng-template ngbTabTitle>Sign up</ng-template>
+      <ng-template ngbTabContent>
+        <br>
+        <form #myform="ngForm" class="form-inline my-2 my-lg-0">
+          <input [(ngModel)]="signup_fullname" #fullnamesignup="ngModel" [class.is-invalid]="fullnamesignup.touched && fullnamesignup.invalid" class="form-control mr-sm-2" type="text" placeholder="Full Name" aria-label="Fullname" name="signup_fullname" required>
+          <input [(ngModel)]="signup_username" #usernamesignup="ngModel" [class.is-invalid]="usernamesignup.touched && usernamesignup.invalid" class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username" name="signup_username" required>
+          <input [(ngModel)]="signup_email" #emailsignup="ngModel" class="form-control mr-sm-2" type="email" placeholder="Email id" aria-label="Email id" name="signup_email" [class.is-invalid]="emailsignup.touched && emailsignup.invalid" required>
+          <input [(ngModel)]="signup_mobile" #mobilesignup="ngModel" class="form-control mr-sm-2" type="number" placeholder="Mobile Number" aria-label="Mobile Number" name="signup_mobile" [class.is-invalid]="mobilesignup.touched && mobilesignup.invalid" required>
+          <input [(ngModel)]="signup_qualification" #qualificationsignup="ngModel" class="form-control mr-sm-2" type="text" placeholder="Qualification" aria-label="Qualification" name="signup_qualification" [class.is-invalid]="qualificationsignup.touched && qualificationsignup.invalid" required>
+          <input [(ngModel)]="signup_password" #passwordsignup="ngModel" class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" name="signup_password" [class.is-invalid]="passwordsignup.touched && passwordsignup.invalid" required>
+          <input [(ngModel)]="signup_repassword" #repassword="ngModel" class="form-control mr-sm-2" type="password" placeholder="Confirm Password" aria-label="Re-Password" name="signup_repassword" [class.is-invalid]="repassword.touched && repassword.invalid" required>
+          <div *ngIf="repassword.touched && signup_password!=signup_repassword" class="alert alert-danger">Password mismatch</div>
+          
+        </form>
+        <button (click)="signupInstructor(signup_fullname,signup_username,signup_email,signup_mobile,signup_qualification,signup_password)" type="button" class="btn btn-primary" [disabled]="!myform.form.valid">Submit</button>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
